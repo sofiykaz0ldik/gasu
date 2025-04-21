@@ -18,12 +18,13 @@
             height: 100vh;
             display:flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
+            padding-left:200px;
         }
         #menu_change{
             position: static;
             width: 100vw;
-            height: 20vh;
+            height: 100vh;
             display: flex;
             justify-content: center;
             flex-direction: row;
@@ -31,9 +32,9 @@
         .block {
             display: flex;
             align-items: center;
-            align-items: center;
             max-width: 350px;
             flex-wrap:nowrap; /*чтобы кнопка не уходила после ввода*/
+            margin-bottom: 10px;
         }
         .block .btn{
             max-width: 120px;
@@ -45,13 +46,14 @@
         }
         .block input{
             width: 150px;
-            height: 35px;
+            height: 50px;
             font-size: 16px;
             margin: 0 5px;       
         }
         #form {
-            width: 300px;
+            width: 500px;
             height: 500px;
+            padding: auto;
         }
         .my-btn{
             width: 40px;
@@ -63,7 +65,7 @@
         }
         #input_list{
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             gap: 10px;
         }
         .calc-btn {
