@@ -80,6 +80,6 @@ btnDelete.addEventListener("click", () => {
 btnEllipsis.addEventListener("click", () => {
     const text = sentenceInput.value;
     if (text.length > 100) {
-        sentenceInput.value = text.slice(0, 100) + "...";
+        sentenceInput.value = text.slice(0, 100) + ("...");
     }
 });

@@ -35,7 +35,6 @@ const btnDel =$.createElement("button");
 const btnMnog =$.createElement("button");
 const btnDelOst =$.createElement("button");
 const button = $.createElement("button");
-//const res = $.createElement("input");
 
 //Инициализация древа
 menu.appendChild(firstBlock);
