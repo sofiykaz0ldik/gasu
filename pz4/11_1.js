@@ -123,7 +123,7 @@ button.addEventListener("click", () =>{
     }
     const num1 = Number(firstnumber);
     const num2 = Number(secondnumber);
-    
+
     let result;
 
     switch (operation) {
@@ -149,9 +149,6 @@ button.addEventListener("click", () =>{
         case "^":
             result = num1 ** num2;
             break;
-
-        default:
-            alert("Неизвестная операция");
     }
     $.getElementById("result_output").value = result;
 })
