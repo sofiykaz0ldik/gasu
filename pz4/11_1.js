@@ -123,6 +123,7 @@ button.addEventListener("click", () =>{
     }
     const num1 = Number(firstnumber);
     const num2 = Number(secondnumber);
+    
     let result;
 
     switch (operation) {
