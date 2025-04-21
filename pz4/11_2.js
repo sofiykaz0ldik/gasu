@@ -18,16 +18,17 @@ const IntroBlock = $.createElement("div");
 const SenBlock = $.createElement("div");
 const btnBlock = $.createElement("div");
 
+menu.appendChild(IntroBlock);
 IntroBlock.appendChild(introP);
+menu.appendChild(SenBlock);
 SenBlock.appendChild(sentenceLabel);
 SenBlock.appendChild(sentenceInput);
+menu.appendChild(btnBlock);
 btnBlock.appendChild(btnFirstLetter);
 btnBlock.appendChild(btnPoint);
 btnBlock.appendChild(btnDelete);
 btnBlock.appendChild(btnEllipsis);
-menu.appendChild(IntroBlock);
-menu.appendChild(SenBlock);
-menu.appendChild(btnBlock);
+
 form.appendChild(menu);
 divForm.appendChild(form);
 $.body.appendChild(divForm);
@@ -51,6 +52,7 @@ btnFirstLetter.type = "button";
 btnPoint.type = "button";
 btnDelete.type = "button";
 btnEllipsis.type = "button";
+
 
 for (let button of [btnFirstLetter, btnPoint, btnDelete, btnEllipsis]) {
     button.classList.add("btn", "btn-info");
