@@ -35,6 +35,8 @@ body {
     justify-content: center;
     margin-top: 20px;
     font-family: Arial;  
+    word-break: break-all;
+
 }
 
 #result_form div {
