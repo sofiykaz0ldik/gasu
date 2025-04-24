@@ -5,11 +5,11 @@ const stones = [
     ["C", "E", false]
 ];
 const sortStones = (stones) => {
-    const AllStones = new Set();
+    const allStones = new Set();
     const LightStones = {}
     stones.forEach(([a, b, res]) => {
-        AllStones.add(a);
-        AllStones.add(b);
+        allStones.add(a);
+        allStones.add(b);
         if (res === true){
             if (LightStones[a] === undefined) 
                 LightStones[a] = new Set();
@@ -19,7 +19,7 @@ const sortStones = (stones) => {
                 LightStones[b] = new Set();
             LightStones[b].add(a)}
     });
-    const all = [...AllStones]
+    const all = [...allStones]
     all.sort((st1, st2) => {
         const s1 = LightStones[st1]? LightStones[st1].size : 0;
         const s2 = LightStones[st2]? LightStones[st2].size : 0;

@@ -1,0 +1,91 @@
+body {
+    
+    font-family: Arial;
+    background-color: #c69ac1;
+}
+
+#div_form {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #c69ac1;
+    flex-direction: column;
+    padding-top: 30px;
+}
+
+#form {
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 60px;
+    width: 800px;
+    height: 350px;
+    background-color: #f1e3f1;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.block h3 {
+    font-size: 28px;
+    text-align: center;
+    width: 100%;
+    margin: 0 15px;
+}
+
+.block h5 {
+    font-size: 20px;
+    margin-bottom: 6px;
+}
+
+.block input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.block button {
+    width: 50%;
+    height: 50px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#resultBlock {
+    margin-top: 20px;
+    width: 40%;
+    padding: 15px;
+    background-color: #f1e3f1;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    white-space: pre-wrap; /*чтобы было как надо*/
+}
+
+.invisible {
+    display: none;
+}
+
+.input-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.input-row .block {
+    flex: 1;
+    min-width: 220px;
+}

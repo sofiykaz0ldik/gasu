@@ -1,4 +1,4 @@
-var myArray = ["Поешь","еще","этих","мягких","французских","булок","какешка"];
+var myArray = ["Поешь","еще","этих","мягких","французских","булок"];
 function bulki(){
     var stringArray = ' ';
     for (var word of myArray){

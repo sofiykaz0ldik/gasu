@@ -4,9 +4,9 @@ const divForm = $.createElement("div");
 const form = $.createElement("form");
 
 const introforP = $.createElement("div");
-const introP = $.createElement("p");
+const introH = $.createElement("h5");
 
-const sentenceLabel = $.createElement("label");
+const sentenceP = $.createElement("p");
 const sentenceInput = $.createElement("input");
 
 const btnFirstLetter = $.createElement("button");
@@ -19,9 +19,9 @@ const SenBlock = $.createElement("div");
 const btnBlock = $.createElement("div");
 
 menu.appendChild(IntroBlock);
-IntroBlock.appendChild(introP);
+IntroBlock.appendChild(introH);
 menu.appendChild(SenBlock);
-SenBlock.appendChild(sentenceLabel);
+SenBlock.appendChild(sentenceP);
 SenBlock.appendChild(sentenceInput);
 menu.appendChild(btnBlock);
 btnBlock.appendChild(btnFirstLetter);
@@ -37,47 +37,59 @@ $.body.appendChild(divForm);
     btnDelete.textContent, btnEllipsis.textContent] = 
     ["Сделать первую букву заглавной", "Поставить точку",
         "Убрать лишние пробелы","Поставить многоточие"];
-introP.textContent = "Работа с предложениями";
-sentenceLabel.textContent = "Введите предложение: ";
+introH.textContent = "Работа с предложениями";
+sentenceP.textContent = "Введите предложение: ";
 
 sentenceInput.type = "text"; 
 sentenceInput.id = "sentenceInput";
 
 divForm.id = "div_form";
 form.id = "form";
-IntroBlock.className = "block";
-SenBlock.className = "block";
-btnBlock.className = "block";
-btnFirstLetter.type = "button";
-btnPoint.type = "button";
-btnDelete.type = "button";
-btnEllipsis.type = "button";
 
-
+for (let element of [IntroBlock, SenBlock, btnBlock]) {
+    element.classList.add("block");
+}
 for (let button of [btnFirstLetter, btnPoint, btnDelete, btnEllipsis]) {
     button.classList.add("btn", "btn-info");
+    button.type = "button";
+}
+
+function emptyStr(){
+    const text = sentenceInput.value.trim();
+    if (text === "") {
+        alert("Введите предложение");
+        return false;
+    }
+    for (let i = 0; i < text.length; i++) {
+        if (text[i] >= "0" && text[i] <= "9") {
+            alert("Предложение не должно содержать числа");
+            return false;
+        }
+    } 
+    return true;
 }
 btnFirstLetter.addEventListener("click", () => {
+    if (!emptyStr()) return;
     const text = sentenceInput.value;
     if(text.length > 0){
         sentenceInput.value = text[0].toLocaleUpperCase()+text.slice(1);
     }
 });
 btnPoint.addEventListener("click", () => {
+    if (!emptyStr()) return;
     const text = sentenceInput.value;
-    if (text !== ""){
     const lastChar = text[text.length - 1];
     if(lastChar !== "." && lastChar !== "!" && lastChar !== "?"){
        sentenceInput.value = text + "."; 
-    }} else{
-        alert ("Введите предложение")
     }
 });
 btnDelete.addEventListener("click", () => {
+    if (!emptyStr()) return;
     const text = sentenceInput.value;
     sentenceInput.value = text.trim();
 });
 btnEllipsis.addEventListener("click", () => {
+    if (!emptyStr()) return;
     const text = sentenceInput.value;
     if (text.length > 100) {
         sentenceInput.value = text.slice(0, 100) + ("...");

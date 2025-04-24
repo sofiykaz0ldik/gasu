@@ -23,6 +23,6 @@ function typeA(arg){
             break;
         }
     }
-    }
-    typeA(true);
+}
+typeA(true);
     

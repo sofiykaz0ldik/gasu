@@ -1,4 +1,4 @@
-var Animal = {
+var animal = {
     age: 5,
     name: 'Клеопатра',
     type: 'кошка',
@@ -6,7 +6,7 @@ var Animal = {
     toys: ["птичка", "мячик", "мышь"],
     
     otherName: function(newName){
-    this.name = newName;
+        this.name = newName;
     },
     inform: function(){
         console.log('это '+ (this.tame ? "домашняя" : "дикая") + ' '+ this.type +
@@ -17,8 +17,8 @@ var Animal = {
         return this.type + ' ' + this.name;
     }
     
-    }
-    console.log(Animal.nameType);
-    Animal.otherName('дженифер')
-    Animal.inform()
-    console.log(Animal.nameType);
+}
+console.log(animal.nameType);
+animal.otherName('дженифер')
+animal.inform()
+console.log(animal.nameType);

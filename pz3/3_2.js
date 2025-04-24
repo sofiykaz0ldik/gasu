@@ -1,4 +1,4 @@
-const Array = [
+const array = [
     [0, 0], [0, 1], [0, -1], [1, 0],
     [-1, 0], [4, 5], [4, 4], [3, 4],
     [4, 3], [3, 3], [11, 2], [5, 5],
@@ -10,14 +10,14 @@ const Array = [
     [6, 9], [2, 6], [3, -7], [6, 7],
     [7, 10], [4, -1], [-5, 2], [-1, 2],
 ];
-const CentralPoints = (Array) => {
+const CentralPoints = (array) => {
     let countP = 0;
-    Array.forEach(([x, y], i) => {
+    array.forEach(([x, y], i) => {
         let PointLeft = false;
         let PointRight = false;
         let PointUp = false;
         let PointDown = false;
-        Array.forEach(([x2, y2], j) => {
+        array.forEach(([x2, y2], j) => {
         if (i === j) return;
         if (x2 < x && y2 === y) PointLeft = true;
         if (x2 > x && y2 === y) PointRight = true;
@@ -30,4 +30,4 @@ const CentralPoints = (Array) => {
 
     return countP;
 };
-console.log(CentralPoints(Array));
+console.log(CentralPoints(array));

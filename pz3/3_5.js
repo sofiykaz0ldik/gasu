@@ -1,4 +1,4 @@
-const	Array = [
+const array = [
     ["WBWBWBWB"],
     ["BWBWBWBW"],
     ["BWBWBWBW"],
@@ -8,22 +8,23 @@ const	Array = [
     ["WBWBWBWB"],
     ["WBWBWBWB"],
 ]
-const chessboard = (board) => {
+const Chessboard = (board) => {
     const trueboard1 = "WBWBWBWB";
     const trueboard2 = "BWBWBWBW";
-    for (var i=0; i< board.length; i++){
-        const row = board[i][0];
+
+    let find = true;
+    for (let row of board){
+        let rowStr = row[0];
+        let findV = false;
     
-        if (i=== 0 && row[0] !== "W") return false;
-        var find = false;
-        for (var j = 0; j < 8; j++){
-            const shift = row.slice(j) + row.slice(0,j);
+        for (let i = 0; i < rowStr.length; i++){
+            const shift = rowStr.slice(i) + rowStr.slice(0,i);
             if (shift === trueboard1 || shift===trueboard2){
-                find = true;
+                findV = true;
             }
-        }  
-        if (!find) return false;
+        }
+    if(!findV) find = false;
     }
-    return true;
+    return find;
 }
-console.log(chessboard(Array))
+console.log(Chessboard(array))

@@ -1,22 +1,22 @@
 const array = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2];
-const sortNum = (arr) => {
-const EvenNumbers =[]
-const OddNumbers = []
-const res = []
-for (var i=0; i<arr.length;i++){
-    if (arr[i]%2 ===0){
-        EvenNumbers.push(arr[i])
-    } else {
-        OddNumbers.push(arr[i])
+    const sortNum = (arr) => {
+    const evenNumbers =[]
+    const oddNumbers = []
+    const res = []
+    for (let i=0; i < arr.length; i++){
+        if (arr[i]%2 === 0){
+            evenNumbers.push(arr[i])
+        } else {
+            oddNumbers.push(arr[i])
+        }
     }
-}
-for (var i=0;i<arr.length;i++){
-    if(i%2 === 0){
-        res.push(OddNumbers.shift())
-    } else {
-        res.push(EvenNumbers.shift())
+    for (let i=0;i < arr.length; i++){
+        if(i%2 === 0){
+            res.push(oddNumbers.shift())
+        } else {
+            res.push(evenNumbers.shift())
+        }
     }
-}
-return res;
+    return res;
 }
 console.log(sortNum(array));

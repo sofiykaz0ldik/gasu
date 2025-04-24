@@ -1,4 +1,4 @@
-const Array = [
+const array = [
     ["+Миша"], ["+Олег"],["+Антон"],
     ["+Таня"], ["-Миша"],
     ["Таня:Как дела?"],
@@ -8,15 +8,13 @@ const Array = [
 ];
 const chatTraffic = (actions) => {
     const onlineUsers = new Set();   
-    var traffic = 0;  
-
-    for (var i = 0; i < actions.length; i++) {
+    let traffic = 0;  
+    for (let i = 0; i < actions.length; i++) {
         const action = actions[i][0]; 
+        const userName = action.slice(1);
         if (action[0] === "+") {
-            const userName = action.slice(1);
             onlineUsers.add(userName);
         } else if (action[0] === "-") {
-            const userName = action.slice(1);  
             onlineUsers.delete(userName);
         } else {
             const [user, message] = action.split(":");  
@@ -27,4 +25,4 @@ const chatTraffic = (actions) => {
     }
     return traffic;  
 }
-console.log(chatTraffic(Array));  
+console.log(chatTraffic(array));  

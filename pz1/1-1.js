@@ -20,6 +20,6 @@ function typeA(arg){
         console.log("отсутствие значения");
         break;
     }
-    }
-    typeA(null);
+}
+typeA(null);
     

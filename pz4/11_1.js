@@ -72,7 +72,6 @@ button.textContent = "посчитать";
 button.id = "submit_btn"
 divForm.id = "div_form";
 form.id = "form";
-menu.id = "menu_change";
 inputList.id = "input_list";
 firstBlockInput.id = "input_first";
 thirdBlockInput.id = "input_second";
@@ -80,7 +79,7 @@ fourBlockInput.id = "result_output";
 firstBlockInput.type = "number";
 thirdBlockInput.type = "number";
 fourBlockInput.type = "text"; 
-fourBlockInput.readOnly = true; // чтобы нельзя было редактир
+fourBlockInput.readOnly = true; 
 
 // классы
 firstBlockForP.classList.add("form-label");
@@ -92,11 +91,10 @@ fourBlockInput.classList.add("form-control");
 button.classList.add("btn", "btn-dark", "calc-btn");
 button.type = "button"; 
 
-[btnAddition, btnSubtraction, btnDegree, btnDel, btnMnog, btnDelOst].forEach(btn => {
+for (let btn of [btnAddition, btnSubtraction, btnDegree, btnDel, btnMnog, btnDelOst]){
     btn.classList.add("btn", "btn-dark", "my-btn");
-    btn.type = "button"; 
-});
-
+    btn.type = "button";
+}
 for (let element of [firstBlock, secondBlock, thirdBlock, fourBlock]) {
     element.classList.add("block");
 }
@@ -110,8 +108,8 @@ btnMnog.addEventListener("click", () => operation = "*");
 btnDelOst.addEventListener("click", () => operation = "%");
 
 button.addEventListener("click", () =>{
-    const firstnumber = $.getElementById("input_first").value;
-    const secondnumber = $.getElementById("input_second").value;
+    const firstnumber = firstBlockInput.value;
+    const secondnumber = thirdBlockInput.value;
     if (firstnumber.trim() === "" || secondnumber.trim() === "") {
         alert("Заполните оба поля");
         return;
@@ -149,5 +147,6 @@ button.addEventListener("click", () =>{
             result = num1 ** num2;
             break;
     }
-    $.getElementById("result_output").value = result;
+    fourBlockInput.value = result;
+    operation = "";
 })

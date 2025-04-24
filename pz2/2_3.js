@@ -5,19 +5,18 @@ var paragraph = "Однажды я шел перед вечером мимо б�
 "Он неожиданно за щелкал."
 
 function splitStr(paragraph){
-var pointArr = paragraph.split(".");
-var res=[]; 
-for (var sentence of pointArr){
-if (sentence != ""){
-var words = sentence.split(" ");
-words.push(".");
-res.push({
-    length: words.length,  
-    words: words         
-  });
-}
-}
+  var pointArr = paragraph.split(".");
+  var res=[]; 
+  for (var sentence of pointArr){
+  if (sentence != ""){
+    var words = sentence.split(" ");
+    words.push(".");
+  res.push({
+      length: words.length,  
+      words: words         
+    });
+  };
+  };
   return res;
 }
 console.log(splitStr(paragraph));
-console.log(JSON.stringify(splitStr(paragraph), null, 2));

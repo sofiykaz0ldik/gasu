@@ -4,13 +4,10 @@ const divForm = $.createElement("div");
 const form = $.createElement("form");
 
 const firstBlock = $.createElement("div");
-const firstTextForP = $.createElement("div");
-const firstTextP = $.createElement("p");
+const firstTextH = $.createElement("h4");
 
 const secondBlock = $.createElement("div");
-const TextforP = $.createElement("div");
 const TextP = $.createElement("p");
-const TextLabel = $.createElement("label");
 const TextInput = $.createElement("input");
 
 const ThreeBlock = $.createElement("div");
@@ -24,7 +21,7 @@ const btnAssembler = $.createElement("button");
 const btnCsharp = $.createElement("button");
 
 menu.appendChild(firstBlock);
-firstBlock.appendChild(firstTextP);
+firstBlock.appendChild(firstTextH);
 menu.appendChild(secondBlock);
 secondBlock.appendChild(TextP);
 secondBlock.appendChild(TextInput);
@@ -49,20 +46,13 @@ $.body.appendChild(divForm);
     ["JavaScript", "C++",
      "Java","Python",
     "PHP", "Ruby","Assembler", "C#",];
-firstTextP.textContent ="Список языков";
+firstTextH.textContent ="Список языков";
 TextP.textContent = "Перечислите языки, которыми вы владеете";
 
 divForm.id = "div_form";
 form.id = "form";
-menu.id = "menu_change";
-btnJS.type = "button";
-btnC.type = "button";
-btnJava.type = "button";
-btnPython.type = "button";
-btnPHP.type = "button";
-btnRuby.type = "button";
-btnAssembler.type = "button";
-btnCsharp.type = "button";
+
+TextInput.readOnly = true;
 
 for (let element of [firstBlock, secondBlock, ThreeBlock]) {
     element.classList.add("block");
@@ -70,6 +60,7 @@ for (let element of [firstBlock, secondBlock, ThreeBlock]) {
 secondBlock.classList.add("block", "input-block");
 
 for (let button of [btnJS, btnC, btnJava, btnPython, btnPHP, btnRuby, btnAssembler, btnCsharp]) {
+    button.type = "button";
     button.classList.add("btn", "btn-success");
 }
 function toggleBtn(button, lan){
