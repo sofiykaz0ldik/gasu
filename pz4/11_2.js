@@ -14,15 +14,15 @@ const btnPoint = $.createElement("button");
 const btnDelete = $.createElement("button");
 const btnEllipsis = $.createElement("button");
 
-const IntroBlock = $.createElement("div");
-const SenBlock = $.createElement("div");
+const introBlock = $.createElement("div");
+const senBlock = $.createElement("div");
 const btnBlock = $.createElement("div");
 
-menu.appendChild(IntroBlock);
-IntroBlock.appendChild(introH);
-menu.appendChild(SenBlock);
-SenBlock.appendChild(sentenceP);
-SenBlock.appendChild(sentenceInput);
+menu.appendChild(introBlock);
+introBlock.appendChild(introH);
+menu.appendChild(senBlock);
+senBlock.appendChild(sentenceP);
+senBlock.appendChild(sentenceInput);
 menu.appendChild(btnBlock);
 btnBlock.appendChild(btnFirstLetter);
 btnBlock.appendChild(btnPoint);
@@ -46,7 +46,7 @@ sentenceInput.id = "sentenceInput";
 divForm.id = "div_form";
 form.id = "form";
 
-for (let element of [IntroBlock, SenBlock, btnBlock]) {
+for (let element of [introBlock, senBlock, btnBlock]) {
     element.classList.add("block");
 }
 for (let button of [btnFirstLetter, btnPoint, btnDelete, btnEllipsis]) {

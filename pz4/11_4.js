@@ -7,10 +7,10 @@ const firstBlock = $.createElement("div");
 const firstTextH = $.createElement("h4");
 
 const secondBlock = $.createElement("div");
-const TextP = $.createElement("p");
-const TextInput = $.createElement("input");
+const textP = $.createElement("p");
+const textInput = $.createElement("input");
 
-const ThreeBlock = $.createElement("div");
+const threeBlock = $.createElement("div");
 const btnJS = $.createElement("button");
 const btnC = $.createElement("button");
 const btnJava = $.createElement("button");
@@ -23,17 +23,17 @@ const btnCsharp = $.createElement("button");
 menu.appendChild(firstBlock);
 firstBlock.appendChild(firstTextH);
 menu.appendChild(secondBlock);
-secondBlock.appendChild(TextP);
-secondBlock.appendChild(TextInput);
-menu.appendChild(ThreeBlock);
-ThreeBlock.appendChild(btnJS);
-ThreeBlock.appendChild(btnC);
-ThreeBlock.appendChild(btnJava);
-ThreeBlock.appendChild(btnPython);
-ThreeBlock.appendChild(btnPHP);
-ThreeBlock.appendChild(btnRuby);
-ThreeBlock.appendChild(btnAssembler);
-ThreeBlock.appendChild(btnCsharp);
+secondBlock.appendChild(textP);
+secondBlock.appendChild(textInput);
+menu.appendChild(threeBlock);
+threeBlock.appendChild(btnJS);
+threeBlock.appendChild(btnC);
+threeBlock.appendChild(btnJava);
+threeBlock.appendChild(btnPython);
+threeBlock.appendChild(btnPHP);
+threeBlock.appendChild(btnRuby);
+threeBlock.appendChild(btnAssembler);
+threeBlock.appendChild(btnCsharp);
 
 form.appendChild(menu);
 divForm.appendChild(form);
@@ -47,14 +47,13 @@ $.body.appendChild(divForm);
      "Java","Python",
     "PHP", "Ruby","Assembler", "C#",];
 firstTextH.textContent ="Список языков";
-TextP.textContent = "Перечислите языки, которыми вы владеете";
+textP.textContent = "Перечислите языки, которыми вы владеете";
 
 divForm.id = "div_form";
 form.id = "form";
+textInput.readOnly = true;
 
-TextInput.readOnly = true;
-
-for (let element of [firstBlock, secondBlock, ThreeBlock]) {
+for (let element of [firstBlock, secondBlock, threeBlock]) {
     element.classList.add("block");
 }
 secondBlock.classList.add("block", "input-block");
@@ -64,7 +63,7 @@ for (let button of [btnJS, btnC, btnJava, btnPython, btnPHP, btnRuby, btnAssembl
     button.classList.add("btn", "btn-success");
 }
 function toggleBtn(button, lan){
-    const btnValue = TextInput.value;
+    const btnValue = textInput.value;
     let languages = btnValue.length > 0? btnValue.split(", ") : [];
     let newLan = [];
     for (var i = 0; i < languages.length; i++){
@@ -80,7 +79,7 @@ function toggleBtn(button, lan){
         button.classList.remove("btn-success");
         button.classList.add("btn-danger");
     }
-    TextInput.value = newLan.join(", ");
+    textInput.value = newLan.join(", ");
 }
 btnJS.addEventListener("click", () => toggleBtn(btnJS, "JavaScript"));
 btnC.addEventListener("click", () => toggleBtn(btnC, "C++"));

@@ -63,7 +63,8 @@ body {
 
 #resultBlock {
     margin-top: 20px;
-    width: 40%;
+    width: auto;
+    max-width: 800px;
     padding: 15px;
     background-color: #f1e3f1;
     border-radius: 10px;
@@ -73,6 +74,7 @@ body {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     font-size: 18px;
     white-space: pre-wrap; /*чтобы было как надо*/
+    word-break: break-all;
 }
 
 .invisible {

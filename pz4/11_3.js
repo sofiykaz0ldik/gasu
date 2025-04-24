@@ -3,19 +3,19 @@ const divForm = $.createElement("div");
 const form = $.createElement("form");
 const menu = $.createElement("div");
 
-const TextBlock = $.createElement("div");
-const TextH = $.createElement("h3");
-TextH.textContent = "Создание открытки";
-TextBlock.appendChild(TextH);
-TextBlock.classList.add("block");
+const textBlock = $.createElement("div");
+const textH = $.createElement("h3");
+textH.textContent = "Создание открытки";
+textBlock.appendChild(textH);
+textBlock.classList.add("block");
 
-const NameBlock = $.createElement("div");
-const NameH = $.createElement("h5");
-const NameInput = $.createElement("input");
-NameH.textContent = "Отправитель";
-NameBlock.appendChild(NameH);
-NameBlock.appendChild(NameInput);
-NameBlock.classList.add("block");
+const nameBlock = $.createElement("div");
+const nameH = $.createElement("h5");
+const nameInput = $.createElement("input");
+nameH.textContent = "Отправитель";
+nameBlock.appendChild(nameH);
+nameBlock.appendChild(nameInput);
+nameBlock.classList.add("block");
 
 const addresseeBlock = $.createElement("div");
 const addresseeH = $.createElement("h5");
@@ -48,7 +48,7 @@ messageBlock.classList.add("block");
 
 const topInput = $.createElement("div");
 topInput.classList.add("input-row");
-topInput.appendChild(NameBlock);
+topInput.appendChild(nameBlock);
 topInput.appendChild(addresseeBlock);
 topInput.appendChild(headingBlock);
 
@@ -59,7 +59,7 @@ const resultBlock = $.createElement("div");
 resultBlock.id = "resultBlock";
 resultBlock.classList.add("block", "invisible");
 
-menu.appendChild(TextBlock);
+menu.appendChild(textBlock);
 menu.appendChild(topInput);
 menu.appendChild(messageBlock);
 
@@ -70,7 +70,7 @@ divForm.id = "div_form";
 form.id = "form";
 
 function emptyForm(){
-    const name = NameInput.value.trim();
+    const name = nameInput.value.trim();
     const addressee = addresseeInput.value.trim();
     const heading = headingInput.value.trim();
     const message = messageInput.value.trim();
@@ -108,6 +108,10 @@ function emptyForm(){
         alert("Введите заголовок открытки");
         return false
     }
+    if (!/^[а-яёa-z0-9\s]+[.!?]?$/.test(heading.toLowerCase())) {
+        alert("Заголовок должен содержать только буквы, цифры и пробелы, и знак препинания только в конце (если он есть)");
+        return false;
+    }
     if (!message){
         alert("Введите текст сообщения");
         return false;
@@ -119,7 +123,7 @@ btnMessage.addEventListener("click", () => {
     if (!emptyForm()) return;
     resultBlock.classList.remove('invisible');
     resultBlock.textContent =
-        "Отправитель: " + NameInput.value.trim() + "\n" +
+        "Отправитель: " + nameInput.value.trim() + "\n" +
         "Адресат: " + addresseeInput.value.trim() + "\n" +
         headingInput.value.trim() + "\n" +
         messageInput.value.trim();

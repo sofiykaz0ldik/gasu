@@ -4,35 +4,35 @@ const divForm = $.createElement("div");
 const form = $.createElement("form");
 const menu = $.createElement("div");
 
-const TextBlock = $.createElement("div");
-const TextH = $.createElement("h3");
-TextH.textContent = "Анкета";
-TextBlock.appendChild(TextH);
-TextBlock.classList.add("block");
+const textBlock = $.createElement("div");
+const textH = $.createElement("h3");
+textH.textContent = "Анкета";
+textBlock.appendChild(textH);
+textBlock.classList.add("block");
 
-const NameBlock = $.createElement("div");
-const NameH = $.createElement("h5");
-const NameInput = $.createElement("input");
-NameH.textContent = "Имя";
-NameBlock.appendChild(NameH);
-NameBlock.appendChild(NameInput);
-NameBlock.classList.add("block");
+const nameBlock = $.createElement("div");
+const nameH = $.createElement("h5");
+const nameInput = $.createElement("input");
+nameH.textContent = "Имя";
+nameBlock.appendChild(nameH);
+nameBlock.appendChild(nameInput);
+nameBlock.classList.add("block");
 
-const SurNameBlock = $.createElement("div");
-const SurNameH = $.createElement("h5");
-const SurNameInput = $.createElement("input");
-SurNameH.textContent = "Фамилия";
-SurNameBlock.appendChild(SurNameH);
-SurNameBlock.appendChild(SurNameInput);
-SurNameBlock.classList.add("block");
+const surNameBlock = $.createElement("div");
+const surNameH = $.createElement("h5");
+const surNameInput = $.createElement("input");
+surNameH.textContent = "Фамилия";
+surNameBlock.appendChild(surNameH);
+surNameBlock.appendChild(surNameInput);
+surNameBlock.classList.add("block");
 
-const GroupBlock = $.createElement("div");
+const groupBlock = $.createElement("div");
 const groupH = $.createElement("h5");
 const groupInput = $.createElement("input");
 groupH.textContent = "Группа";
-GroupBlock.appendChild(groupH);
-GroupBlock.appendChild(groupInput);
-GroupBlock.classList.add("block");
+groupBlock.appendChild(groupH);
+groupBlock.appendChild(groupInput);
+groupBlock.classList.add("block");
 
 const btnBlock = $.createElement("div");
 const btnQuesStart = $.createElement("button");
@@ -52,14 +52,14 @@ resultForm.appendChild(resultText);
 
 const btnRepeat = $.createElement("button");
 btnRepeat.type = "button";
-btnRepeat.textContent = "Пройти еще раз";
+btnRepeat.textContent = "Очистить форму";
 btnRepeat.classList.add("btn", "btn-primary");
 resultForm.appendChild(btnRepeat);
 
-menu.appendChild(TextBlock);
-menu.appendChild(NameBlock);
-menu.appendChild(SurNameBlock);
-menu.appendChild(GroupBlock);
+menu.appendChild(textBlock);
+menu.appendChild(nameBlock);
+menu.appendChild(surNameBlock);
+menu.appendChild(groupBlock);
 menu.appendChild(btnBlock);
 
 form.appendChild(menu);
@@ -71,8 +71,8 @@ divForm.id = "div_form";
 form.id = "form";
 
 function emptyForm() {
-    const name = NameInput.value.trim();
-    const surname = SurNameInput.value.trim();
+    const name = nameInput.value.trim();
+    const surname = surNameInput.value.trim();
     const group = groupInput.value.trim();
 
     if (!name) {
@@ -101,30 +101,36 @@ function emptyForm() {
 btnQuesStart.addEventListener("click", () => {
     if (!emptyForm()) return;
 
-    let Age = prompt('Сколько тебе лет?');
-    while (!Age || isNaN(Age)) {
-        Age = prompt("Ответ должен содержать числа! Введите возраст:");
+    let age = prompt('Сколько тебе лет?');
+    while (age < 0){
+        age = prompt("Ответ должен быть положительным! Введите возраст:");
+    }
+    while (!age || isNaN(age) || /[.,\/#!$%\^&\*;:{}=\-_`~()«»"'?]/.test(age)) {
+        age = prompt("Ответ должен содержать числа! Введите возраст:");
     }
 
     let study = prompt('На каком курсе университета ты?');
-    while (!study || isNaN(study)) {
+    while (!study || isNaN(study) || /[.,\/#!$%\^&\*;:{}=\-_`~()«»"'?]/.test(study)) {
         study = prompt("Ответ должен содержать числа! Введите курс:");
+    }
+    while (study < 0){
+        study = prompt("Ответ должен быть положительным! Введите курс:");
     }
 
     let animal = prompt('Какое твое любимое животное?');
-    while (!animal || /\d/.test(animal)) {
-        animal = prompt("Ответ не должен содержать числа! Какое твое любимое животное?");
+    while (!animal || /[^а-яё\s]/i.test(animal)) {
+        animal = prompt("Ответ не должен содержать числа или знаки препинания! Какое твое любимое животное?");
     }
 
     let feeling = prompt("Как настроение?)");
-    while (!feeling || /\d/.test(feeling)) {
-        feeling = prompt("Ответ не должен содержать числа! Как настроение?))");
+    while (!feeling || /[^а-яё\s]/i.test(feeling)) {
+        feeling = prompt("Ответ не должен содержать числа или знаки препинания! Как настроение?))");
     }
 
-    resultText.textContent = "Результаты анкеты:\nИмя: " + NameInput.value.trim() +
-        "\nФамилия: " + SurNameInput.value.trim() +
+    resultText.textContent = "Результаты анкеты:\nИмя: " + nameInput.value.trim() +
+        "\nФамилия: " + surNameInput.value.trim() +
         "\nГруппа: " + groupInput.value.trim() +
-        "\nВозраст: " + Age +
+        "\nВозраст: " + age +
         "\nКурс: " + study +
         "\nЛюбимое животное: " + animal +
         "\nНастроение: " + feeling;
@@ -133,7 +139,7 @@ btnQuesStart.addEventListener("click", () => {
 
 btnRepeat.addEventListener("click", () => {
     resultForm.classList.add("invisible");
-    NameInput.value = "";
-    SurNameInput.value = "";
+    nameInput.value = "";
+    surNameInput.value = "";
     groupInput.value = "";
 });
