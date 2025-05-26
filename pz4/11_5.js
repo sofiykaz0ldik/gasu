@@ -79,7 +79,7 @@ function emptyForm() {
         alert("Введите имя");
         return false;
     }
-    if (/[.,\/#!$%\^&\*;:{}=\-_`~()«»"'?]/.test(name)) {
+    if (/[^a-zа-яё\s]/i.test(name)) {
         alert("Имя не должно содержать числа и символы");
         return false;
     }
@@ -87,12 +87,16 @@ function emptyForm() {
         alert("Введите фамилию");
         return false;
     }
-    if (/[.,\/#!$%\^&\*;:{}=\-_`~()«»"'?]/.test(surname)) {
+    if (/[^a-zа-яё\s]/i.test(surname)) {
         alert("Фамилия не должна содержать числа и символы");
         return false;
     }
     if (!group) {
         alert("Введите группу");
+        return false;
+    }
+    if (/[^a-zа-яё0-9]/i.test(group)) {
+        alert("Группа должна содержать только буквы и цифры, без пробелов и символов!");
         return false;
     }
     return true;
@@ -105,12 +109,12 @@ btnQuesStart.addEventListener("click", () => {
     while (age < 0){
         age = prompt("Ответ должен быть положительным! Введите возраст:");
     }
-    while (!age || isNaN(age) || /[.,\/#!$%\^&\*;:{}=\-_`~()«»"'?]/.test(age)) {
+    while (!age || isNaN(age) || /[.,\/#!$%\^&\*;:{}=\-_`~()«»"'?]/.test(age) || age.trim() === "") {
         age = prompt("Ответ должен содержать числа! Введите возраст:");
     }
 
     let study = prompt('На каком курсе университета ты?');
-    while (!study || isNaN(study) || /[.,\/#!$%\^&\*;:{}=\-_`~()«»"'?]/.test(study)) {
+    while (!study || isNaN(study) || /[.,\/#!$%\^&\*;:{}=\-_`~()«»"'?]/.test(study) || study.trim() === "") {
         study = prompt("Ответ должен содержать числа! Введите курс:");
     }
     while (study < 0){
@@ -118,12 +122,12 @@ btnQuesStart.addEventListener("click", () => {
     }
 
     let animal = prompt('Какое твое любимое животное?');
-    while (!animal || /[^а-яё\s]/i.test(animal)) {
+    while (!animal || animal.trim() === "" || /[^a-zа-яё\s]/i.test(animal)) {
         animal = prompt("Ответ не должен содержать числа или знаки препинания! Какое твое любимое животное?");
     }
 
     let feeling = prompt("Как настроение?)");
-    while (!feeling || /[^а-яё\s]/i.test(feeling)) {
+    while (!feeling || feeling.trim() === "" || /[^a-zа-яё\s]/i.test(feeling)){
         feeling = prompt("Ответ не должен содержать числа или знаки препинания! Как настроение?))");
     }
 

@@ -70,34 +70,17 @@ divForm.id = "div_form";
 form.id = "form";
 
 function emptyForm(){
-    const name = nameInput.value.trim();
-    const addressee = addresseeInput.value.trim();
-    const heading = headingInput.value.trim();
-    const message = messageInput.value.trim();
 
-    if (!name){
-        alert("Введите имя отправителя");
-        return false;
+    let name = prompt("Введите имя отправителя:");
+    while (!name || name.trim() === "" || /[^а-яёa-z\s]/i.test(name)) {
+        alert("Имя отправителя не должно содержать цифры или знаки препинания!");
     }
-    for (let i = 0; i < name.length; i++) {
-        if (name[i] >= "0" && name[i] <= "9") {
-            alert("Имя отправителя не должно содержать цифры");
-            return false;
-        }
-    }
-    if (/[.,\/#!$%\^&\*;:{}=\-_`~()«»"'?]/.test(name)) {
-        alert("Имя не должно содержать знаков препинания");
-        return false;
+
+    let addressee = prompt("Введите имя адресата:");
+    while (!addressee || addressee.trim() === "" || /[^а-яёa-z\s]/i.test(addressee)) {
+        alert("Имя получателя не должно содержать цифры или знаки препинания!");
     }
     
-    if (!addressee){
-        alert("Введите имя адресата");
-        return false;
-    }
-    if (/[.,\/#!$%\^&\*;:{}=\-_`~()«»"'?]/.test(addressee)) {
-        alert("Имя не должно содержать знаков препинания");
-        return false;
-    }
     for (let i = 0; i < addressee.length; i++) {
         if (addressee[i] >= "0" && addressee[i] <= "9") {
             alert("Имя адресата не должно содержать цифры");
